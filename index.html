@@ -1,100 +1,61 @@
 <!doctype html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 
-    <!-- Docsify Theme (Vue Light default) -->
-    <link id="docsify-theme"
-          rel="stylesheet"
-          href="https://cdn.jsdelivr.net/npm/docsify@^5.0.0-rc/dist/themes/vue.min.css">
+  <!-- Docsify Themeable (Vue-style base) -->
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/docsify-themeable@0/dist/css/theme-simple.css">
 
-    <!-- Prism -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs/themes/prism.css">
+  <!-- Custom theme overrides -->
+  <link rel="stylesheet" href="/assets/theme.css">
 
-    <style>
-      #theme-toggle {
-        position: fixed;
-        bottom: 16px;
-        right: 16px;
-        z-index: 999;
-        padding: 8px 12px;
-        border-radius: 6px;
-        border: 1px solid #ccc;
-        background: #fff;
-        cursor: pointer;
-        font-size: 14px;
-      }
-    </style>
-  </head>
+  <!-- Prism -->
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/prismjs/themes/prism.css">
+</head>
 
-  <body class="loading">
+<body class="loading">
 
-    <button id="theme-toggle">Dark</button>
+  <!-- Theme toggle button -->
+  <button id="theme-toggle" aria-label="Toggle theme"></button>
 
-    <div id="app"></div>
+  <div id="app"></div>
 
-    <script>
-      window.$docsify = {
-        loadSidebar: true,
-        alias: {
-          '/.*/_sidebar.md': '/_sidebar.md'
-        },
-        name: 'Docsify Test',
-        repo: ''
-      }
-    </script>
+  <script>
+    window.$docsify = {
+      loadSidebar: true,
+      alias: {
+        '/.*/_sidebar.md': '/_sidebar.md'
+      },
+      name: 'Docsify Test',
+      repo: ''
+    }
+  </script>
 
-    <!-- Docsify v5 -->
-    <script src="https://cdn.jsdelivr.net/npm/docsify@^5.0.0-rc/dist/docsify.min.js"></script>
+  <!-- Docsify 5 -->
+  <script src="https://cdn.jsdelivr.net/npm/docsify@^5.0.0-rc/dist/docsify.min.js"></script>
 
-    <!-- Prism -->
-    <script src="https://cdn.jsdelivr.net/npm/prismjs/prism.js"></script>
+  <!-- Prism -->
+  <script src="https://cdn.jsdelivr.net/npm/prismjs/prism.js"></script>
 
-    <!-- Mermaid 10 -->
-    <script type="module">
-      import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs";
+  <!-- Mermaid -->
+  <script type="module">
+    import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs";
 
-      mermaid.initialize({
-        startOnLoad: false,
-        securityLevel: "loose"
-      });
+    mermaid.initialize({
+      startOnLoad: false,
+      securityLevel: "loose"
+    });
 
-      window.mermaid = mermaid;
-    </script>
+    window.mermaid = mermaid;
+  </script>
 
-    <!-- Docsify Mermaid Plugin -->
-    <script src="https://cdn.jsdelivr.net/npm/docsify-mermaid@2/dist/docsify-mermaid.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/docsify-mermaid@2/dist/docsify-mermaid.js"></script>
 
-    <!-- Theme Toggle Logic -->
-    <script>
-      const themeLink = document.getElementById("docsify-theme");
-      const toggleBtn = document.getElementById("theme-toggle");
+  <!-- Theme toggle logic -->
+  <script src="/assets/theme-toggle.js" defer></script>
 
-      const lightTheme = "https://cdn.jsdelivr.net/npm/docsify@^5.0.0-rc/dist/themes/vue.min.css";
-      const darkTheme  = "https://cdn.jsdelivr.net/npm/docsify@^5.0.0-rc/dist/themes/dark.min.css";
-
-      const savedTheme = localStorage.getItem("docsify-theme") || "light";
-
-      function applyTheme(mode) {
-        if (mode === "dark") {
-          themeLink.href = darkTheme;
-          toggleBtn.textContent = "Light";
-        } else {
-          themeLink.href = lightTheme;
-          toggleBtn.textContent = "Dark";
-        }
-
-        localStorage.setItem("docsify-theme", mode);
-      }
-
-      toggleBtn.addEventListener("click", () => {
-        const current = localStorage.getItem("docsify-theme") || "light";
-        applyTheme(current === "light" ? "dark" : "light");
-      });
-
-      applyTheme(savedTheme);
-    </script>
-
-  </body>
+</body>
 </html>

@@ -1,0 +1,52 @@
+/* Light theme */
+
+:root {
+  --theme-color: #42b983;
+
+  --base-background-color: #ffffff;
+  --base-color: #2c3e50;
+
+  --sidebar-background: #ffffff;
+  --sidebar-border-color: #eaecef;
+
+  --code-background: #f8f8f8;
+}
+
+/* Dark theme */
+
+[data-theme="dark"] {
+  --theme-color: #4fc08d;
+
+  --base-background-color: #121212;
+  --base-color: #e0e0e0;
+
+  --sidebar-background: #181818;
+  --sidebar-border-color: #2a2a2a;
+
+  --code-background: #1e1e1e;
+}
+
+/* Toggle button styling */
+
+#theme-toggle {
+  position: fixed;
+  bottom: 16px;
+  right: 16px;
+  z-index: 1000;
+
+  width: 44px;
+  height: 44px;
+
+  border-radius: 50%;
+  border: 1px solid var(--sidebar-border-color);
+
+  background: var(--sidebar-background);
+  color: var(--base-color);
+
+  cursor: pointer;
+  font-size: 18px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
