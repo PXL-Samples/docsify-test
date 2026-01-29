@@ -4,11 +4,36 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 
-    <!-- Core Theme -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify@^5.0.0-rc/dist/themes/core.min.css">
+    <!-- Docsify Theme (Vue Light default) -->
+    <link id="docsify-theme"
+          rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/docsify@^5.0.0-rc/dist/themes/vue.min.css">
+
+    <!-- Prism -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs/themes/prism.css">
+
+    <style>
+      #theme-toggle {
+        position: fixed;
+        bottom: 16px;
+        right: 16px;
+        z-index: 999;
+        padding: 8px 12px;
+        border-radius: 6px;
+        border: 1px solid #ccc;
+        background: #fff;
+        cursor: pointer;
+        font-size: 14px;
+      }
+    </style>
   </head>
+
   <body class="loading">
+
+    <button id="theme-toggle">Dark</button>
+
     <div id="app"></div>
+
     <script>
       window.$docsify = {
         loadSidebar: true,
@@ -19,7 +44,57 @@
         repo: ''
       }
     </script>
+
     <!-- Docsify v5 -->
     <script src="https://cdn.jsdelivr.net/npm/docsify@^5.0.0-rc/dist/docsify.min.js"></script>
+
+    <!-- Prism -->
+    <script src="https://cdn.jsdelivr.net/npm/prismjs/prism.js"></script>
+
+    <!-- Mermaid 10 -->
+    <script type="module">
+      import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs";
+
+      mermaid.initialize({
+        startOnLoad: false,
+        securityLevel: "loose"
+      });
+
+      window.mermaid = mermaid;
+    </script>
+
+    <!-- Docsify Mermaid Plugin -->
+    <script src="https://cdn.jsdelivr.net/npm/docsify-mermaid@2/dist/docsify-mermaid.js"></script>
+
+    <!-- Theme Toggle Logic -->
+    <script>
+      const themeLink = document.getElementById("docsify-theme");
+      const toggleBtn = document.getElementById("theme-toggle");
+
+      const lightTheme = "https://cdn.jsdelivr.net/npm/docsify@^5.0.0-rc/dist/themes/vue.min.css";
+      const darkTheme  = "https://cdn.jsdelivr.net/npm/docsify@^5.0.0-rc/dist/themes/dark.min.css";
+
+      const savedTheme = localStorage.getItem("docsify-theme") || "light";
+
+      function applyTheme(mode) {
+        if (mode === "dark") {
+          themeLink.href = darkTheme;
+          toggleBtn.textContent = "Light";
+        } else {
+          themeLink.href = lightTheme;
+          toggleBtn.textContent = "Dark";
+        }
+
+        localStorage.setItem("docsify-theme", mode);
+      }
+
+      toggleBtn.addEventListener("click", () => {
+        const current = localStorage.getItem("docsify-theme") || "light";
+        applyTheme(current === "light" ? "dark" : "light");
+      });
+
+      applyTheme(savedTheme);
+    </script>
+
   </body>
 </html>
