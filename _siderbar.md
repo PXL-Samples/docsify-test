@@ -1,1 +1,3 @@
 - [README](README.md)
+- [Course 1](./course/course1.md)
+- [Course 2](./course/course2.md)
