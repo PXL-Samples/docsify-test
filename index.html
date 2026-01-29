@@ -1,11 +1,12 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8">
+  <meta charset="UTF-8">
+  <title>Docsify Test</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <link rel="stylesheet"
-        href="https://cdn.jsdelivr.net/npm/docsify@5/dist/themes/vue.min.css">
+  <!-- Docsify Vue theme -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify@4/themes/vue.css">
 </head>
 
 <body>
@@ -13,10 +14,12 @@
 
   <script>
     window.$docsify = {
-      name: 'Docsify Test'
+      name: 'Docsify Test',
+      loadSidebar: true
     };
   </script>
 
-  <script src="https://cdn.jsdelivr.net/npm/docsify@5/dist/docsify.min.js"></script>
+  <!-- Docsify core -->
+  <script src="https://cdn.jsdelivr.net/npm/docsify@4"></script>
 </body>
 </html>
