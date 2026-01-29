@@ -4,11 +4,11 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 
-  <!-- docsify-themeable base theme (Vue-like) -->
+  <!-- Docsify Themeable base (Vue-style) -->
   <link rel="stylesheet"
         href="https://cdn.jsdelivr.net/npm/docsify-themeable@0/dist/css/theme-simple.css">
 
-  <!-- Your overrides (light/dark variables + toggle button + transitions) -->
+  <!-- Your custom theme variables -->
   <link rel="stylesheet" href="/assets/theme.css">
 
   <!-- Prism theme (switched dynamically) -->
@@ -18,6 +18,8 @@
 </head>
 
 <body class="loading">
+
+  <!-- Theme toggle button -->
   <button id="theme-toggle" type="button" aria-label="Toggle theme"></button>
 
   <div id="app"></div>
@@ -25,7 +27,9 @@
   <script>
     window.$docsify = {
       loadSidebar: true,
-      alias: { '/.*/_sidebar.md': '/_sidebar.md' },
+      alias: {
+        '/.*/_sidebar.md': '/_sidebar.md'
+      },
       name: 'Docsify Test',
       repo: ''
     };
@@ -37,18 +41,19 @@
   <!-- Prism core -->
   <script src="https://cdn.jsdelivr.net/npm/prismjs/prism.js"></script>
 
-  <!-- Mermaid (ESM) -->
+  <!-- Mermaid -->
   <script type="module">
     import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs";
     window.mermaid = mermaid;
   </script>
 
-  <!-- docsify-mermaid -->
+  <!-- Docsify Mermaid plugin -->
   <script src="https://cdn.jsdelivr.net/npm/docsify-mermaid@2/dist/docsify-mermaid.js"></script>
 
-  <!-- Theme + integration scripts -->
+  <!-- Theme integration scripts -->
   <script src="/assets/prism-theme.js" defer></script>
   <script src="/assets/mermaid-theme.js" defer></script>
   <script src="/assets/theme-toggle.js" defer></script>
+
 </body>
 </html>
