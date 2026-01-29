@@ -4,26 +4,36 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 
-  <!-- REQUIRED for GitHub Pages project site -->
+  <!-- GitHub Pages project path -->
   <base href="/docsify-test/">
 
-  <!-- Docsify Themeable base (Vue-style) -->
-  <link rel="stylesheet"
-        href="https://cdn.jsdelivr.net/npm/docsify-themeable@0/dist/css/theme-simple.css">
-
-  <!-- Your custom theme variables -->
-  <link rel="stylesheet" href="assets/theme.css">
-
-  <!-- Prism theme (switched dynamically) -->
-  <link id="prism-theme"
+  <!-- Docsify theme (swapped dynamically) -->
+  <link id="docsify-theme"
         rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/docsify@^5.0.0-rc/dist/themes/vue.min.css">
+
+  <!-- Prism (single theme, unchanged) -->
+  <link rel="stylesheet"
         href="https://cdn.jsdelivr.net/npm/prismjs/themes/prism.css">
+
+  <style>
+    #theme-toggle {
+      position: fixed;
+      bottom: 16px;
+      right: 16px;
+      z-index: 999;
+      padding: 8px 12px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      background: #fff;
+      cursor: pointer;
+    }
+  </style>
 </head>
 
 <body class="loading">
 
-  <!-- Theme toggle button -->
-  <button id="theme-toggle" type="button" aria-label="Toggle theme"></button>
+  <button id="theme-toggle">Dark</button>
 
   <div id="app"></div>
 
@@ -38,25 +48,50 @@
     };
   </script>
 
-  <!-- Docsify v5 -->
+  <!-- Docsify 5 -->
   <script src="https://cdn.jsdelivr.net/npm/docsify@^5.0.0-rc/dist/docsify.min.js"></script>
 
-  <!-- Prism core -->
+  <!-- Prism -->
   <script src="https://cdn.jsdelivr.net/npm/prismjs/prism.js"></script>
 
   <!-- Mermaid -->
   <script type="module">
     import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs";
+    mermaid.initialize({ startOnLoad: false });
     window.mermaid = mermaid;
   </script>
 
   <!-- Docsify Mermaid plugin -->
   <script src="https://cdn.jsdelivr.net/npm/docsify-mermaid@2/dist/docsify-mermaid.js"></script>
 
-  <!-- Theme integration scripts -->
-  <script src="assets/prism-theme.js" defer></script>
-  <script src="assets/mermaid-theme.js" defer></script>
-  <script src="assets/theme-toggle.js" defer></script>
+  <!-- Theme toggle -->
+  <script>
+    const themeLink = document.getElementById("docsify-theme");
+    const button = document.getElementById("theme-toggle");
+
+    const LIGHT = "https://cdn.jsdelivr.net/npm/docsify@^5.0.0-rc/dist/themes/vue.min.css";
+    const DARK  = "https://cdn.jsdelivr.net/npm/docsify@^5.0.0-rc/dist/themes/dark.min.css";
+
+    const saved = localStorage.getItem("docsify-theme") || "light";
+
+    function apply(mode) {
+      if (mode === "dark") {
+        themeLink.href = DARK;
+        button.textContent = "Light";
+      } else {
+        themeLink.href = LIGHT;
+        button.textContent = "Dark";
+      }
+      localStorage.setItem("docsify-theme", mode);
+    }
+
+    button.onclick = () => {
+      const current = localStorage.getItem("docsify-theme") || "light";
+      apply(current === "light" ? "dark" : "light");
+    };
+
+    apply(saved);
+  </script>
 
 </body>
 </html>
