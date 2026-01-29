@@ -4,58 +4,51 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 
-  <!-- Docsify Themeable (Vue-style base) -->
+  <!-- docsify-themeable base theme (Vue-like) -->
   <link rel="stylesheet"
         href="https://cdn.jsdelivr.net/npm/docsify-themeable@0/dist/css/theme-simple.css">
 
-  <!-- Custom theme overrides -->
+  <!-- Your overrides (light/dark variables + toggle button + transitions) -->
   <link rel="stylesheet" href="/assets/theme.css">
 
-  <!-- Prism -->
-  <link rel="stylesheet"
+  <!-- Prism theme (switched dynamically) -->
+  <link id="prism-theme"
+        rel="stylesheet"
         href="https://cdn.jsdelivr.net/npm/prismjs/themes/prism.css">
 </head>
 
 <body class="loading">
-
-  <!-- Theme toggle button -->
-  <button id="theme-toggle" aria-label="Toggle theme"></button>
+  <button id="theme-toggle" type="button" aria-label="Toggle theme"></button>
 
   <div id="app"></div>
 
   <script>
     window.$docsify = {
       loadSidebar: true,
-      alias: {
-        '/.*/_sidebar.md': '/_sidebar.md'
-      },
+      alias: { '/.*/_sidebar.md': '/_sidebar.md' },
       name: 'Docsify Test',
       repo: ''
-    }
+    };
   </script>
 
-  <!-- Docsify 5 -->
+  <!-- Docsify v5 -->
   <script src="https://cdn.jsdelivr.net/npm/docsify@^5.0.0-rc/dist/docsify.min.js"></script>
 
-  <!-- Prism -->
+  <!-- Prism core -->
   <script src="https://cdn.jsdelivr.net/npm/prismjs/prism.js"></script>
 
-  <!-- Mermaid -->
+  <!-- Mermaid (ESM) -->
   <script type="module">
     import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs";
-
-    mermaid.initialize({
-      startOnLoad: false,
-      securityLevel: "loose"
-    });
-
     window.mermaid = mermaid;
   </script>
 
+  <!-- docsify-mermaid -->
   <script src="https://cdn.jsdelivr.net/npm/docsify-mermaid@2/dist/docsify-mermaid.js"></script>
 
-  <!-- Theme toggle logic -->
+  <!-- Theme + integration scripts -->
+  <script src="/assets/prism-theme.js" defer></script>
+  <script src="/assets/mermaid-theme.js" defer></script>
   <script src="/assets/theme-toggle.js" defer></script>
-
 </body>
 </html>

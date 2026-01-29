@@ -1,26 +1,38 @@
-const root = document.documentElement;
-const button = document.getElementById("theme-toggle");
+(function () {
+  const root = document.documentElement;
+  const button = document.getElementById("theme-toggle");
 
-const stored = localStorage.getItem("theme");
-const systemDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+  if (!button) return;
 
-const initial = stored || (systemDark ? "dark" : "light");
-
-function applyTheme(mode) {
-  if (mode === "dark") {
-    root.setAttribute("data-theme", "dark");
-    button.textContent = "☀";
-  } else {
-    root.removeAttribute("data-theme");
-    button.textContent = "🌙";
+  function getSystemTheme() {
+    return window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches
+      ? "dark"
+      : "light";
   }
 
-  localStorage.setItem("theme", mode);
-}
+  function getTheme() {
+    return localStorage.getItem("theme") || getSystemTheme();
+  }
 
-button.addEventListener("click", () => {
-  const current = root.getAttribute("data-theme") === "dark" ? "dark" : "light";
-  applyTheme(current === "light" ? "dark" : "light");
-});
+  function setTheme(mode) {
+    if (mode === "dark") {
+      root.setAttribute("data-theme", "dark");
+      button.textContent = "☀";
+    } else {
+      root.removeAttribute("data-theme");
+      button.textContent = "🌙";
+    }
 
-applyTheme(initial);
+    localStorage.setItem("theme", mode);
+
+    // Broadcast theme change for integrations (Mermaid, Prism, etc.)
+    window.dispatchEvent(new CustomEvent("docsify-theme-change", { detail: { theme: mode } }));
+  }
+
+  button.addEventListener("click", () => {
+    const current = root.getAttribute("data-theme") === "dark" ? "dark" : "light";
+    setTheme(current === "dark" ? "light" : "dark");
+  });
+
+  setTheme(getTheme());
+})();

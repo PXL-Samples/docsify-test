@@ -1,5 +1,14 @@
-/* Light theme */
+/* Smooth transitions for theme changes */
+@media (prefers-reduced-motion: no-preference) {
+  html, body, .sidebar, .content, .app-nav, .markdown-section, pre, code, blockquote, table {
+    transition:
+      background-color 180ms linear,
+      color 180ms linear,
+      border-color 180ms linear;
+  }
+}
 
+/* Light */
 :root {
   --theme-color: #42b983;
 
@@ -10,24 +19,24 @@
   --sidebar-border-color: #eaecef;
 
   --code-background: #f8f8f8;
+  --blockquote-border-color: #eaecef;
 }
 
-/* Dark theme */
-
+/* Dark */
 [data-theme="dark"] {
   --theme-color: #4fc08d;
 
   --base-background-color: #121212;
-  --base-color: #e0e0e0;
+  --base-color: #e6e6e6;
 
   --sidebar-background: #181818;
   --sidebar-border-color: #2a2a2a;
 
   --code-background: #1e1e1e;
+  --blockquote-border-color: #2a2a2a;
 }
 
-/* Toggle button styling */
-
+/* Toggle button */
 #theme-toggle {
   position: fixed;
   bottom: 16px;
@@ -37,16 +46,22 @@
   width: 44px;
   height: 44px;
 
-  border-radius: 50%;
+  border-radius: 999px;
   border: 1px solid var(--sidebar-border-color);
 
   background: var(--sidebar-background);
   color: var(--base-color);
 
   cursor: pointer;
-  font-size: 18px;
-
   display: flex;
   align-items: center;
   justify-content: center;
+
+  font-size: 18px;
+  line-height: 1;
+}
+
+/* Optional: subtle hover */
+#theme-toggle:hover {
+  filter: brightness(0.98);
 }
