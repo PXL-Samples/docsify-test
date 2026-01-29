@@ -3,4 +3,4 @@
 Some text.
 >And a warning.
 
-[Download link](/assets/pdf/retouretiket.pdf)
+[Download link](/assets/pdf/retouretiket.pdf ':ignore')
