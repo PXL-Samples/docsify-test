@@ -3,4 +3,4 @@
 Some text.
 >And a warning.
 
-[Download link](/assets/pdf/retouretiket.pdf ':ignore')
+[Download link](/docsify-test/assets/pdf/retouretiket.pdf ':ignore')
