@@ -5,8 +5,9 @@
   <title>Docsify Test</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!-- Docsify Vue theme -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify@4/themes/vue.css">
+  <!-- Docsify 5 Vue theme -->
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/docsify@5/dist/themes/vue.min.css">
 </head>
 
 <body>
@@ -15,11 +16,17 @@
   <script>
     window.$docsify = {
       name: 'Docsify Test',
-      loadSidebar: true
+
+      loadSidebar: true,
+
+      // IMPORTANT: reuse root sidebar on all routes
+      alias: {
+        '/.*/_sidebar.md': '/_sidebar.md'
+      }
     };
   </script>
 
-  <!-- Docsify core -->
-  <script src="https://cdn.jsdelivr.net/npm/docsify@4"></script>
+  <!-- Docsify 5 core -->
+  <script src="https://cdn.jsdelivr.net/npm/docsify@5/dist/docsify.min.js"></script>
 </body>
 </html>
