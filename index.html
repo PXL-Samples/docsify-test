@@ -4,10 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!-- GitHub Pages project base -->
-  <base href="/docsify-test/">
-
-  <!-- Docsify Vue theme (light) -->
+  <!-- Docsify built-in Vue theme -->
   <link rel="stylesheet"
         href="https://cdn.jsdelivr.net/npm/docsify@5/dist/themes/vue.min.css">
 
@@ -15,10 +12,9 @@
   <link rel="stylesheet"
         href="https://cdn.jsdelivr.net/npm/prismjs/themes/prism.css">
 
-  <!-- Docsify Darklight Plugin CSS -->
+  <!-- Docsify dark/light toggle plugin -->
   <link rel="stylesheet"
         href="https://cdn.jsdelivr.net/npm/docsify-darklight-theme@3/dist/style.min.css">
-
 </head>
 
 <body>
@@ -35,7 +31,7 @@
     };
   </script>
 
-  <!-- Docsify -->
+  <!-- Docsify core -->
   <script src="https://cdn.jsdelivr.net/npm/docsify@5/dist/docsify.min.js"></script>
 
   <!-- Prism -->
@@ -44,14 +40,16 @@
   <!-- Mermaid -->
   <script type="module">
     import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs";
-    mermaid.initialize({ startOnLoad: false });
+    mermaid.initialize({
+      startOnLoad: false
+    });
     window.mermaid = mermaid;
   </script>
 
   <!-- Docsify Mermaid plugin -->
   <script src="https://cdn.jsdelivr.net/npm/docsify-mermaid@2/dist/docsify-mermaid.js"></script>
 
-  <!-- Docsify Darklight Plugin -->
+  <!-- Docsify dark/light toggle plugin -->
   <script src="https://cdn.jsdelivr.net/npm/docsify-darklight-theme@3/dist/index.min.js"></script>
 
 </body>
