@@ -1,17 +1,19 @@
 <!doctype html>
 <html>
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 
-  <!-- Docsify v5 core theme -->
+  <!-- Docsify core theme -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify@5.0.0-rc.3/dist/themes/core.min.css">
 </head>
 
-<body>
+<body class="loading">
   <div id="app"></div>
 
   <script>
+    let svgCounter = 0;
+
     window.$docsify = {
       loadSidebar: true,
       alias: {
@@ -20,10 +22,27 @@
       name: "Docsify Test",
       repo: "",
 
-      // REQUIRED for Mermaid adapter
-      mermaidConfig: {
-        startOnLoad: false,
-        securityLevel: "loose"
+      markdown: {
+        renderer: {
+          code(code, lang) {
+            if (lang === "mermaid") {
+              const svgName = `mermaid-svg-${svgCounter++}`;
+              const containerId = `${svgName}-container`;
+
+              // Start Mermaid async render
+              window.mermaid.render(svgName, code)
+                .then(({ svg }) => {
+                  const container = document.getElementById(containerId);
+                  if (container) container.innerHTML = svg;
+                })
+                .catch(err => console.error("Mermaid render error:", err));
+
+              // Return placeholder div
+              return `<div class="mermaid" id="${containerId}"></div>`;
+            }
+            return this.origin.code.apply(this, arguments);
+          }
+        }
       }
     };
   </script>
@@ -36,11 +55,14 @@
   <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-bash.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-json.min.js"></script>
 
-  <!-- Mermaid 10 (PINNED SAFE VERSION) -->
-  <script src="https://cdn.jsdelivr.net/npm/mermaid@10.4.0/dist/mermaid.min.js"></script>
+  <!-- Mermaid v10 UMD -->
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
 
-  <!-- Docsify Mermaid adapter (PINNED) -->
-  <script src="https://cdn.jsdelivr.net/npm/docsify-mermaid@2.0.0/dist/docsify-mermaid.min.js"></script>
+  <script>
+    // Only initialize after script load
+    mermaid.initialize({ startOnLoad: false, securityLevel: "loose" });
+    window.mermaid = mermaid;
+  </script>
 
 </body>
 </html>
