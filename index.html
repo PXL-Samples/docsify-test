@@ -3,48 +3,23 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-    <title>Docsify Test</title>
 
-    <!-- Docsify v5 Core theme (required) -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify@5/dist/themes/core.min.css">
-
-    <!-- Optional: Core Dark add-on (only applies when OS is in dark mode) -->
-    <link rel="stylesheet"
-          href="https://cdn.jsdelivr.net/npm/docsify@5/dist/themes/addons/core-dark.min.css"
-          media="(prefers-color-scheme: dark)">
-
-    <!-- Prism (your choice of theme) -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs/themes/prism.css">
+    <!-- Core Theme -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify@^5.0.0-rc/dist/themes/core.min.css">
   </head>
-
-  <!-- Docsify v5 docs mention applying core theme classes on <body> (e.g., loading) -->
   <body class="loading">
     <div id="app"></div>
-
     <script>
       window.$docsify = {
-        name: "Docsify Test",
         loadSidebar: true,
         alias: {
-          "/.*/_sidebar.md": "/_sidebar.md"
-        }
-      };
+          '/.*/_sidebar.md': '/_sidebar.md'
+        },
+        name: 'Docsify Test',
+        repo: ''
+      }
     </script>
-
     <!-- Docsify v5 -->
-    <script src="https://cdn.jsdelivr.net/npm/docsify@5/dist/docsify.min.js"></script>
-
-    <!-- Prism -->
-    <script src="https://cdn.jsdelivr.net/npm/prismjs/prism.js"></script>
-
-    <!-- Mermaid (example uses v10; if you insist on v11 we need to verify plugin compatibility separately) -->
-    <script type="module">
-      import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs";
-      mermaid.initialize({ startOnLoad: false });
-      window.mermaid = mermaid;
-    </script>
-
-    <!-- Docsify Mermaid plugin -->
-    <script src="https://cdn.jsdelivr.net/npm/docsify-mermaid@2/dist/docsify-mermaid.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/docsify@^5.0.0-rc/dist/docsify.min.js"></script>
   </body>
 </html>
