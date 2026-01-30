@@ -4,9 +4,9 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 
-    <!-- Docsify v5 Core Theme -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify@^5.0.0-rc/dist/themes/core.min.css" />
-
+    <!-- Docsify v5 core theme -->
+    <link rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/docsify@^5.0.0-rc/dist/themes/core.min.css" />
   </head>
 
   <body class="loading">
@@ -26,10 +26,24 @@
     <!-- Docsify v5 -->
     <script src="https://cdn.jsdelivr.net/npm/docsify@^5.0.0-rc/dist/docsify.min.js"></script>
 
-    <!-- Prism language components ONLY -->
+    <!-- Prism language components (python, bash, json) -->
     <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-python.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-bash.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-json.min.js"></script>
+
+    <!-- Mermaid 10 (ESM based) -->
+    <script type="module">
+      import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs";
+
+      // Initialize mermaid for rendering
+      mermaid.initialize({ startOnLoad: true });
+
+      // Attach to global so plugin can use it
+      window.mermaid = mermaid;
+    </script>
+
+    <!-- mermaid-docsify plugin -->
+    <script src="https://cdn.jsdelivr.net/npm/mermaid-docsify@latest/dist/mermaid-docsify.min.js"></script>
 
   </body>
 </html>
