@@ -1,37 +1,34 @@
 <!doctype html>
 <html>
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 
-  <!-- Docsify v5 theme -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify@^5.0.0-rc/dist/themes/core.min.css">
+    <!-- Docsify v5 Core Theme -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify@^5.0.0-rc/dist/themes/core.min.css" />
 
-  <!-- Prism theme -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs/themes/prism.css">
-</head>
+    <!-- Prism CSS (pin to Prism 1.29.0 to match Docsify v5 rc.3 dependency) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism.min.css" />
+  </head>
 
-<body>
-  <div id="app"></div>
+  <body class="loading">
+    <div id="app"></div>
 
-  <script>
-    window.$docsify = {
-      name: 'Docsify Test',
-      loadSidebar: true,
-      alias: {
-        '/.*/_sidebar.md': '/_sidebar.md'
-      }
-    };
-  </script>
+    <script>
+      window.$docsify = {
+        loadSidebar: true,
+        alias: {
+          "/.*/_sidebar.md": "/_sidebar.md",
+        },
+        name: "Docsify Test",
+        repo: "",
+      };
+    </script>
 
-  <!-- Docsify core -->
-  <script src="https://cdn.jsdelivr.net/npm/docsify@^5.0.0-rc/dist/docsify.min.js"></script>
+    <!-- Docsify v5 -->
+    <script src="https://cdn.jsdelivr.net/npm/docsify@^5.0.0-rc/dist/docsify.min.js"></script>
 
-  <!-- Docsify Prism plugin (REQUIRED) -->
-  <script src="https://cdn.jsdelivr.net/npm/docsify-prism@latest/dist/docsify-prism.min.js"></script>
-
-  <!-- Python language -->
-  <script src="https://cdn.jsdelivr.net/npm/prismjs/components/prism-python.min.js"></script>
-
-</body>
+    <!-- Add Prism language(s) ONLY (Docsify already brings Prism core) -->
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-python.min.js"></script>
+  </body>
 </html>
