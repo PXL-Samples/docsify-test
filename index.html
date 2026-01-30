@@ -7,7 +7,7 @@
     <!-- Docsify v5 Core Theme -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify@^5.0.0-rc/dist/themes/core.min.css" />
 
-    <!-- Prism CSS (pin to Prism 1.29.0 to match Docsify v5 rc.3 dependency) -->
+    <!-- Prism CSS (match Docsify v5 dependency version) -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism.min.css" />
   </head>
 
@@ -18,17 +18,20 @@
       window.$docsify = {
         loadSidebar: true,
         alias: {
-          "/.*/_sidebar.md": "/_sidebar.md",
+          "/.*/_sidebar.md": "/_sidebar.md"
         },
         name: "Docsify Test",
-        repo: "",
+        repo: ""
       };
     </script>
 
     <!-- Docsify v5 -->
     <script src="https://cdn.jsdelivr.net/npm/docsify@^5.0.0-rc/dist/docsify.min.js"></script>
 
-    <!-- Add Prism language(s) ONLY (Docsify already brings Prism core) -->
+    <!-- Prism language components ONLY -->
     <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-python.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-bash.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-json.min.js"></script>
+
   </body>
 </html>
