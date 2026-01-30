@@ -1,43 +1,44 @@
 <!doctype html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 
-    <!-- Docsify v5 Core Theme -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify@5.0.0-rc.3/dist/themes/core.min.css" />
-  </head>
+  <!-- Docsify v5 theme -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify@5.0.0-rc.3/dist/themes/core.min.css">
+</head>
 
-  <body class="loading">
-    <div id="app"></div>
+<body>
+  <div id="app"></div>
 
-    <script>
-      window.$docsify = {
-        loadSidebar: true,
-        alias: {
-          "/.*/_sidebar.md": "/_sidebar.md"
-        },
-        name: "Docsify Test",
-        repo: "",
-        mermaidConfig: {
-          startOnLoad: false
-        }
-      };
-    </script>
+  <script>
+    window.$docsify = {
+      loadSidebar: true,
+      alias: {
+        "/.*/_sidebar.md": "/_sidebar.md"
+      },
+      name: "Docsify Test",
+      repo: "",
 
-    <!-- Docsify v5 (pinned) -->
-    <script src="https://cdn.jsdelivr.net/npm/docsify@5.0.0-rc.3/dist/docsify.min.js"></script>
+      mermaidConfig: {
+        startOnLoad: false
+      }
+    };
+  </script>
 
-    <!-- Prism language components (pinned to Prism 1.29.0) -->
-    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-python.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-bash.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-json.min.js"></script>
+  <!-- Docsify -->
+  <script src="https://cdn.jsdelivr.net/npm/docsify@5.0.0-rc.3/dist/docsify.min.js"></script>
 
-    <!-- Mermaid (DOWNGRADED, pinned) -->
-    <script src="https://cdn.jsdelivr.net/npm/mermaid@9.4.3/dist/mermaid.min.js"></script>
+  <!-- Prism languages -->
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-python.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-bash.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-json.min.js"></script>
 
-    <!-- Docsify Mermaid plugin (pinned) -->
-    <script src="https://cdn.jsdelivr.net/npm/docsify-mermaid@2.0.0/dist/docsify-mermaid.min.js"></script>
+  <!-- Mermaid 9 (stable with Docsify) -->
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@9.4.3/dist/mermaid.min.js"></script>
 
-  </body>
+  <!-- Docsify Mermaid plugin FOR MERMAID 9 -->
+  <script src="https://cdn.jsdelivr.net/npm/docsify-mermaid@1.0.0/dist/docsify-mermaid.min.js"></script>
+
+</body>
 </html>
