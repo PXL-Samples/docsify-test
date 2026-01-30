@@ -1,45 +1,37 @@
 <!doctype html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 
-    <!-- Docsify core CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify@^5.0.0-rc/dist/themes/core.min.css">
+  <!-- Docsify v5 theme -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify@^5.0.0-rc/dist/themes/core.min.css">
 
-    <!-- Prism core CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1/themes/prism.css">
-  </head>
-  <body class="loading">
-    <div id="app"></div>
+  <!-- Prism theme -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs/themes/prism.css">
+</head>
 
-    <script>
-      window.$docsify = {
-        loadSidebar: true,
-        alias: {
-          '/.*/_sidebar.md': '/_sidebar.md'
-        },
-        name: 'Docsify Test',
-        repo: '',
-        afterEach: function (html, next) {
-          // re-highlight after each page change
-          if (window.Prism) {
-            window.Prism.highlightAll();
-          }
-          next(html);
-        }
-      };
-    </script>
+<body>
+  <div id="app"></div>
 
-    <!-- Docsify -->
-    <script src="https://cdn.jsdelivr.net/npm/docsify@^5.0.0-rc/dist/docsify.min.js"></script>
+  <script>
+    window.$docsify = {
+      name: 'Docsify Test',
+      loadSidebar: true,
+      alias: {
+        '/.*/_sidebar.md': '/_sidebar.md'
+      }
+    };
+  </script>
 
-    <!-- Prism core -->
-    <script src="https://cdn.jsdelivr.net/npm/prismjs@1/prism.min.js"></script>
+  <!-- Docsify core -->
+  <script src="https://cdn.jsdelivr.net/npm/docsify@^5.0.0-rc/dist/docsify.min.js"></script>
 
-    <!-- Prism Python language grammar -->
-    <script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-python.min.js"></script>
+  <!-- Docsify Prism plugin (REQUIRED) -->
+  <script src="https://cdn.jsdelivr.net/npm/docsify-prism@latest/dist/docsify-prism.min.js"></script>
 
-    <!-- You can add more languages if needed -->
-  </body>
+  <!-- Python language -->
+  <script src="https://cdn.jsdelivr.net/npm/prismjs/components/prism-python.min.js"></script>
+
+</body>
 </html>
