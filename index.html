@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 
-  <!-- Docsify v5 theme -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify@^5.0.0-rc/dist/themes/core.min.css">
+  <!-- Docsify v5 core theme -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify@5.0.0-rc.3/dist/themes/core.min.css">
 </head>
 
 <body>
@@ -20,26 +20,27 @@
       name: "Docsify Test",
       repo: "",
 
-      // REQUIRED for Mermaid plugin
+      // REQUIRED for Mermaid adapter
       mermaidConfig: {
-        startOnLoad: false
+        startOnLoad: false,
+        securityLevel: "loose"
       }
     };
   </script>
 
   <!-- Docsify -->
-  <script src="https://cdn.jsdelivr.net/npm/docsify@^5.0.0-rc/dist/docsify.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/docsify@5.0.0-rc.3/dist/docsify.min.js"></script>
 
   <!-- Prism languages -->
   <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-python.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-bash.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-json.min.js"></script>
 
-  <!-- Mermaid 10 UMD build (NOT ESM) -->
-  <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+  <!-- Mermaid 10 (PINNED SAFE VERSION) -->
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@10.4.0/dist/mermaid.min.js"></script>
 
-  <!-- Docsify Mermaid adapter (v2, Docsify 5 compatible) -->
-  <script src="https://cdn.jsdelivr.net/npm/docsify-mermaid@2/dist/docsify-mermaid.min.js"></script>
+  <!-- Docsify Mermaid adapter (PINNED) -->
+  <script src="https://cdn.jsdelivr.net/npm/docsify-mermaid@2.0.0/dist/docsify-mermaid.min.js"></script>
 
 </body>
 </html>
