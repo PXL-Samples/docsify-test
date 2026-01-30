@@ -1,49 +1,68 @@
 <!doctype html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 
-    <!-- Docsify v5 core theme -->
-    <link rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/docsify@^5.0.0-rc/dist/themes/core.min.css" />
-  </head>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify@^5.0.0-rc/dist/themes/core.min.css" />
+</head>
+<body class="loading">
+  <div id="app"></div>
 
-  <body class="loading">
-    <div id="app"></div>
+  <script>
+    window.$docsify = {
+      loadSidebar: true,
+      alias: {
+        "/.*/_sidebar.md": "/_sidebar.md"
+      },
+      name: "Docsify Test",
+      repo: "",
+      markdown: {
+        renderer: {
+          code(code, lang) {
+            if (lang === "mermaid") {
+              // unique ID per diagram
+              const id = "mermaid-" + Math.random().toString(36).substr(2, 9);
 
-    <script>
-      window.$docsify = {
-        loadSidebar: true,
-        alias: {
-          "/.*/_sidebar.md": "/_sidebar.md"
-        },
-        name: "Docsify Test",
-        repo: ""
-      };
-    </script>
+              // create container for SVG
+              const placeholder = `<div id="${id}"></div>`;
 
-    <!-- Docsify v5 -->
-    <script src="https://cdn.jsdelivr.net/npm/docsify@^5.0.0-rc/dist/docsify.min.js"></script>
+              // async render Mermaid
+              window.mermaid
+                .render(id, code)
+                .then(({ svg }) => {
+                  const container = document.getElementById(id);
+                  if (container) {
+                    container.innerHTML = svg;
+                  }
+                })
+                .catch((err) => {
+                  console.error("Mermaid render error:", err);
+                });
 
-    <!-- Prism language components (python, bash, json) -->
-    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-python.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-bash.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-json.min.js"></script>
+              return placeholder;
+            }
+            return this.origin.code.apply(this, arguments);
+          }
+        }
+      }
+    };
+  </script>
 
-    <!-- Mermaid 10 (ESM based) -->
-    <script type="module">
-      import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs";
+  <!-- Docsify v5 -->
+  <script src="https://cdn.jsdelivr.net/npm/docsify@^5.0.0-rc/dist/docsify.min.js"></script>
 
-      // Initialize mermaid for rendering
-      mermaid.initialize({ startOnLoad: true });
+  <!-- Prism languages -->
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-python.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-bash.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-json.min.js"></script>
 
-      // Attach to global so plugin can use it
-      window.mermaid = mermaid;
-    </script>
+  <!-- Mermaid v10 ESM -->
+  <script type="module">
+    import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs";
+    mermaid.initialize({ startOnLoad: false });
+    window.mermaid = mermaid;
+  </script>
 
-    <!-- mermaid-docsify plugin -->
-    <script src="https://cdn.jsdelivr.net/npm/mermaid-docsify@latest/dist/mermaid-docsify.min.js"></script>
-
-  </body>
+</body>
 </html>
