@@ -4,16 +4,15 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 
-    <!-- Docsify v5 Core Theme -->
+    <!-- Docsify core CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify@^5.0.0-rc/dist/themes/core.min.css">
 
-    <!-- PrismJS Default Theme -->
+    <!-- Prism core CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1/themes/prism.css">
   </head>
   <body class="loading">
     <div id="app"></div>
 
-    <!-- Docsify config -->
     <script>
       window.$docsify = {
         loadSidebar: true,
@@ -21,23 +20,26 @@
           '/.*/_sidebar.md': '/_sidebar.md'
         },
         name: 'Docsify Test',
-        repo: ''
+        repo: '',
+        afterEach: function (html, next) {
+          // re-highlight after each page change
+          if (window.Prism) {
+            window.Prism.highlightAll();
+          }
+          next(html);
+        }
       };
     </script>
 
-    <!-- Docsify v5 -->
+    <!-- Docsify -->
     <script src="https://cdn.jsdelivr.net/npm/docsify@^5.0.0-rc/dist/docsify.min.js"></script>
 
-    <!-- PrismJS core -->
+    <!-- Prism core -->
     <script src="https://cdn.jsdelivr.net/npm/prismjs@1/prism.min.js"></script>
 
-    <!-- PrismJS Python language -->
+    <!-- Prism Python language grammar -->
     <script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-python.min.js"></script>
 
-    <!-- Optional: other Prism languages -->
-    <!--
-      <script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-json.min.js"></script>
-      <script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-bash.min.js"></script>
-    -->
+    <!-- You can add more languages if needed -->
   </body>
 </html>
