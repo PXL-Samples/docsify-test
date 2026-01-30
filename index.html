@@ -4,11 +4,16 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 
-    <!-- Core Theme -->
+    <!-- Docsify v5 Core Theme -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify@^5.0.0-rc/dist/themes/core.min.css">
+
+    <!-- PrismJS Default Theme -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1/themes/prism.css">
   </head>
   <body class="loading">
     <div id="app"></div>
+
+    <!-- Docsify config -->
     <script>
       window.$docsify = {
         loadSidebar: true,
@@ -17,9 +22,22 @@
         },
         name: 'Docsify Test',
         repo: ''
-      }
+      };
     </script>
+
     <!-- Docsify v5 -->
     <script src="https://cdn.jsdelivr.net/npm/docsify@^5.0.0-rc/dist/docsify.min.js"></script>
+
+    <!-- PrismJS core -->
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1/prism.min.js"></script>
+
+    <!-- PrismJS Python language -->
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-python.min.js"></script>
+
+    <!-- Optional: other Prism languages -->
+    <!--
+      <script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-json.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-bash.min.js"></script>
+    -->
   </body>
 </html>
